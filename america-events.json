@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "title": "Deportivo Pasto vs. América de Cali",
+      "start": "2025-09-24T20:00:00-05:00",
+      "end": "2025-09-24T22:00:00-05:00",
+      "location": "Estadio Departamental Libertad, Pasto",
+      "description": "Categoría Primera A · Clausura · Jornada 3 de 19"
+    },
+    {
+      "title": "América de Cali vs. Envigado",
+      "start": "2025-09-28T14:00:00-05:00",
+      "end": "2025-09-28T16:00:00-05:00",
+      "location": "Estadio Olímpico Pascual Guerrero, Cali",
+      "description": "Categoría Primera A · Clausura · Jornada 13 de 19"
+    },
+    {
+      "title": "Junior vs. América de Cali",
+      "start": "2025-10-02T20:00:00-05:00",
+      "end": "2025-10-02T22:00:00-05:00",
+      "location": "Estadio Metropolitano Roberto Meléndez, Barranquilla",
+      "description": "Copa Colombia · Cuartos de final · Partido 1 de 2"
+    },
+    {
+      "title": "Millonarios vs. América de Cali",
+      "start": "2025-10-07T19:30:00-05:00",
+      "end": "2025-10-07T21:30:00-05:00",
+      "location": "Estadio Nemesio Camacho El Campín, Bogotá",
+      "description": "Categoría Primera A · Clausura · Jornada 14 de 19"
+    },
+    {
+      "title": "América de Cali vs. La Equidad",
+      "start": "2025-10-11T19:30:00-05:00",
+      "end": "2025-10-11T21:30:00-05:00",
+      "location": "Estadio Olímpico Pascual Guerrero, Cali",
+      "description": "Categoría Primera A · Clausura · Jornada 15 de 19"
+    },
+    {
+      "title": "América de Cali vs. Junior",
+      "start": "2025-10-15T20:20:00-05:00",
+      "end": "2025-10-15T22:20:00-05:00",
+      "location": "Estadio Olímpico Pascual Guerrero, Cali",
+      "description": "Copa Colombia · Cuartos de final · Partido 2 de 2"
+    },
+    {
+      "title": "Deportivo Cali vs. América de Cali",
+      "start": "2025-10-19T18:20:00-05:00",
+      "end": "2025-10-19T20:20:00-05:00",
+      "location": "Estadio Deportivo Cali, Palmira",
+      "description": "Categoría Primera A · Clausura · Jornada 16 de 19"
+    },
+    {
+      "title": "América de Cali vs. Junior (Pospuesto)",
+      "start": "2025-10-22T00:00:00-05:00",
+      "end": "2025-10-22T02:00:00-05:00",
+      "location": "Estadio Olímpico Pascual Guerrero, Cali",
+      "description": "Categoría Primera A · Clausura · Jornada 17 de 19 · Pospuesto (hora por definir)"
+    },
+    {
+      "title": "Boyacá Chicó vs. América de Cali",
+      "start": "2025-10-28T20:20:00-05:00",
+      "end": "2025-10-28T22:20:00-05:00",
+      "location": "Estadio La Independencia, Tunja",
+      "description": "Categoría Primera A · Clausura · Jornada 18 de 19"
+    },
+    {
+      "title": "América de Cali vs. Unión Magdalena",
+      "start": "2025-11-03T18:20:00-05:00",
+      "end": "2025-11-03T20:20:00-05:00",
+      "location": "Estadio Olímpico Pascual Guerrero, Cali",
+      "description": "Categoría Primera A · Clausura · Jornada 19 de 19"
+    }
+  ]
+}
