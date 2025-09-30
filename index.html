@@ -2514,6 +2514,7 @@ html,body{ background:#05070f !important; }
           <div class="flex gap-2 overflow-x-auto no-scrollbar">
             <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secResumen">Resumen</button>
             <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secPromos">Promos</button>
+            <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secPasaporte">Pasaporte</button>
             <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secComunidad">Comunidad</button>
             <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secEventos">Eventos</button>
             <button class="chip px-3 py-1.5 rounded-lg text-sm" data-section="#secActividad">Actividad</button>
@@ -2665,6 +2666,92 @@ html,body{ background:#05070f !important; }
           <!-- Cupones rápidos para no dejar vacío el bloque cuando hay pocas promos -->
           <div id="promoQuickRow" class="flex gap-2 overflow-x-auto no-scrollbar mb-3"></div>
           <div id="promosContainer" class="dash-grid dash-grid--two"></div>
+        </section>
+
+        <div id="secPasaporte" class="dash-anchor"></div>
+        <header class="dash-section-header mt-8">
+          <h2 class="dash-section-title"><i data-feather="map-pin" class="w-4 h-4 text-america-red"></i> Pasaporte gastronómico</h2>
+          <span class="dash-section-sub">Sella cada compra y desbloquea beneficios gourmet</span>
+        </header>
+        <section id="passportSection" class="my-4" data-aos="fade-up">
+          <div class="grid gap-5 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)]">
+            <div class="space-y-5">
+              <article class="rounded-3xl border border-white/10 bg-white/5 p-6 lg:p-8 backdrop-blur-lg shadow-2xl">
+                <div class="flex flex-col gap-6">
+                  <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                    <div>
+                      <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-white/70">
+                        <i data-feather="coffee" class="h-4 w-4"></i>
+                        Experiencias foodie
+                      </span>
+                      <h3 class="mt-4 text-2xl font-semibold text-white sm:text-[1.7rem]">Pasaporte gastronómico escarlata</h3>
+                      <p class="mt-2 text-sm text-white/70">Registra tus consumos dentro y fuera del Pascual Guerrero para sumar sellos, puntos y beneficios exclusivos.</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-black/40 p-4 text-right text-white w-full max-w-[220px]">
+                      <p class="text-xs uppercase tracking-[0.3em] text-white/60">Sellos activos</p>
+                      <p id="passportStampCount" class="mt-2 text-4xl font-extrabold">0</p>
+                      <p id="passportNextReward" class="mt-2 text-xs text-white/50"></p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="h-2 w-full overflow-hidden rounded-full bg-white/10">
+                      <div id="passportProgressBar" class="h-full w-0 rounded-full bg-gradient-to-r from-amber-300 via-red-500 to-red-600 transition-all duration-500 ease-out"></div>
+                    </div>
+                    <p id="passportProgressLabel" class="mt-2 text-xs text-white/60">Empieza a sellar tus visitas gastronómicas.</p>
+                  </div>
+                  <div class="grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-2xl border border-white/10 bg-black/40 p-4 text-white/80">
+                      <p class="text-xs uppercase tracking-[0.28em] text-white/60">Puntos acumulados</p>
+                      <p id="passportPoints" class="mt-2 text-2xl font-bold text-white">0</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-black/40 p-4 text-white/80">
+                      <p class="text-xs uppercase tracking-[0.28em] text-white/60">Experiencias fuera</p>
+                      <p id="passportOutsideCount" class="mt-2 text-2xl font-bold text-white">0</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-black/40 p-4 text-white/80">
+                      <p class="text-xs uppercase tracking-[0.28em] text-white/60">Consumo registrado</p>
+                      <p id="passportSpend" class="mt-2 text-2xl font-bold text-white">$0</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-3">
+                    <button id="openPassportModal" type="button" class="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:shadow-red-500/40">
+                      <i data-feather="plus-circle" class="h-4 w-4"></i>
+                      Sellar nueva compra
+                    </button>
+                    <button id="passportResetBtn" type="button" class="flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white">
+                      <i data-feather="refresh-ccw" class="h-4 w-4"></i>
+                      Reiniciar pasaporte
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="rounded-3xl border border-white/10 bg-white/5 p-6 lg:p-8 backdrop-blur-lg shadow-xl">
+                <div class="flex items-center justify-between gap-4">
+                  <h3 class="text-lg font-semibold text-white">Últimas experiencias selladas</h3>
+                  <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[0.7rem] uppercase tracking-[0.3em] text-white/60" id="passportHistoryBadge">0 sellos</span>
+                </div>
+                <ul id="passportHistoryList" class="mt-4 divide-y divide-white/5"></ul>
+              </article>
+            </div>
+            <aside class="rounded-3xl border border-white/10 bg-white/5 p-6 lg:p-8 backdrop-blur-lg shadow-xl space-y-6">
+              <div>
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                  <i data-feather="award" class="h-5 w-5 text-amber-300"></i>
+                  Próximos beneficios
+                </h3>
+                <p class="mt-2 text-sm text-white/60">Cada sello te acerca a experiencias gourmet exclusivas.</p>
+                <ul id="passportBenefitsList" class="mt-4 space-y-3"></ul>
+              </div>
+              <div class="border-t border-white/10 pt-6">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                  <i data-feather="map" class="h-5 w-5 text-sky-300"></i>
+                  Rutas recomendadas
+                </h3>
+                <p class="mt-2 text-sm text-white/60">Alterna entre puntos dentro del estadio y aliados de la ciudad para duplicar recompensas.</p>
+                <ul id="passportExplorerList" class="mt-4 space-y-3"></ul>
+              </div>
+            </aside>
+          </div>
         </section>
 
         <div id="secComunidad" class="dash-anchor"></div>
@@ -2830,6 +2917,72 @@ html,body{ background:#05070f !important; }
             </div>
           </div>
         </div>
+        <!-- Modal Pasaporte Gastronómico -->
+        <div id="passportModal" class="fixed inset-0 z-[87] hidden items-center justify-center bg-black/65 backdrop-blur-sm p-4">
+          <div class="w-full max-w-lg rounded-2xl border border-white/10 bg-america-dark/95 text-white shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/10 px-6 py-4">
+              <div>
+                <h3 class="text-lg font-semibold">Sellar compra gastronómica</h3>
+                <p class="text-xs text-white/60">Registra el punto visitado para sumar sellos y puntos.</p>
+              </div>
+              <button id="closePassportModal" class="rounded-lg p-2 hover:bg-white/5" type="button" aria-label="Cerrar">
+                <i data-feather="x" class="h-5 w-5"></i>
+              </button>
+            </div>
+            <form id="passportForm" class="space-y-4 px-6 py-5">
+              <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-white/60">Ubicación</p>
+                <div class="mt-2 grid gap-2 sm:grid-cols-2" id="passportAreaGroup">
+                  <label class="passport-area-option flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm cursor-pointer hover:border-white/30">
+                    <input type="radio" name="passportArea" value="inside" class="hidden" checked>
+                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-red-500/20 text-red-300"><i data-feather="home" class="h-4 w-4"></i></span>
+                    <span class="font-medium text-white">Dentro del estadio</span>
+                  </label>
+                  <label class="passport-area-option flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm cursor-pointer hover:border-white/30">
+                    <input type="radio" name="passportArea" value="outside" class="hidden">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500/20 text-sky-200"><i data-feather="navigation" class="h-4 w-4"></i></span>
+                    <span class="font-medium text-white">Fuera del estadio</span>
+                  </label>
+                </div>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="passportExperience" class="text-xs uppercase tracking-[0.3em] text-white/60">Experiencia</label>
+                  <select id="passportExperience" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm focus:border-america-red focus:outline-none focus:ring-2 focus:ring-red-500/40">
+                    <option value="gastrobar">Gastrobar Occidental</option>
+                    <option value="palcos">Palcos gourmet</option>
+                    <option value="foodtrucks">Food trucks La 14</option>
+                    <option value="cafefans">Café de los hinchas</option>
+                    <option value="aliado">Aliado urbano oficial</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="passportAmount" class="text-xs uppercase tracking-[0.3em] text-white/60">Valor de la compra</label>
+                  <div class="mt-2 flex items-center rounded-xl border border-white/10 bg-white/5 px-3 focus-within:border-america-red focus-within:ring-2 focus-within:ring-red-500/30">
+                    <span class="text-sm text-white/50">$</span>
+                    <input id="passportAmount" type="number" min="0" step="1000" placeholder="35.000" class="w-full bg-transparent px-2 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none" required>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="passportSpot" class="text-xs uppercase tracking-[0.3em] text-white/60">Nombre del punto</label>
+                <input id="passportSpot" type="text" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-america-red focus:outline-none focus:ring-2 focus:ring-red-500/30" placeholder="Ej. Puesto 12 · Choripán Rojo" required>
+              </div>
+              <div>
+                <label for="passportNotes" class="text-xs uppercase tracking-[0.3em] text-white/60">Detalle opcional</label>
+                <textarea id="passportNotes" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-america-red focus:outline-none focus:ring-2 focus:ring-red-500/30" rows="2" placeholder="Cuenta qué probaste o con quién lo compartiste (opcional)"></textarea>
+              </div>
+              <div id="passportPointsPreview" class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+                <i data-feather="trending-up" class="h-4 w-4 text-amber-300"></i>
+                <span>Completa la información para conocer los puntos que sumarás.</span>
+              </div>
+              <div class="flex flex-col gap-2 pt-2 sm:flex-row sm:justify-end sm:gap-3">
+                <button type="button" id="passportCancelBtn" class="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm font-semibold text-white/70 transition hover:border-white/40 hover:text-white sm:w-auto">Cancelar</button>
+                <button type="submit" class="w-full rounded-xl bg-gradient-to-r from-red-500 to-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:shadow-red-500/40 sm:w-auto">Sellar compra</button>
+              </div>
+            </form>
+          </div>
+        </div>
         <div id="secActividad" class="dash-anchor"></div>
         <section class="my-8" data-aos="fade-up">
           <h2 class="dash-section-title mb-2"><i data-feather="clock" class="w-4 h-4 text-america-red"></i> Actividad reciente</h2>
@@ -2838,6 +2991,354 @@ html,body{ background:#05070f !important; }
           </div>
         </section>
       </main>
+
+      <script id="passport-script">
+      (function(){
+        const STORAGE_KEY = 'gastronomyPassport';
+        const REWARDS = [
+          { stamps: 3, reward: 'Bebida de cortesía en tu tribuna' },
+          { stamps: 6, reward: 'Fila express en la zona gourmet' },
+          { stamps: 9, reward: 'Degustación con chefs invitados' },
+          { stamps: 12, reward: 'Experiencia VIP Roja Gourmet' }
+        ];
+        const ROUTES = [
+          { id: 'gastrobar', title: 'Gastrobar Occidental', area: 'inside', icon: 'coffee', description: 'Mixología y tapas previas al saque inicial.', bonus: '+10 pts si sellas antes del minuto 30.' },
+          { id: 'foodtrucks', title: 'Food trucks La 14', area: 'outside', icon: 'truck', description: 'Aliados urbanos con combos rojos en la previa.', bonus: '+15 pts por compras mayores a $40.000.' },
+          { id: 'palcos', title: 'Palcos gourmet', area: 'inside', icon: 'star', description: 'Menú de autor con chefs invitados en occidental.', bonus: 'Duplica sellos en partidos internacionales.' },
+          { id: 'aliado', title: 'Aliado urbano oficial', area: 'outside', icon: 'map-pin', description: 'Restaurantes aliados en la ciudad para la post fiesta.', bonus: '+20 pts por reservar con tu manilla NFC.' }
+        ];
+        const EXPERIENCE_LABELS = {
+          gastrobar: 'Gastrobar Occidental',
+          palcos: 'Palcos gourmet',
+          foodtrucks: 'Food trucks La 14',
+          cafefans: 'Café de los hinchas',
+          aliado: 'Aliado urbano oficial'
+        };
+
+        let state = { stamps: 0, history: [] };
+        let els = {};
+
+        function loadState(){
+          try {
+            const raw = JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
+            if (!raw || typeof raw !== 'object') return { stamps: 0, history: [] };
+            const history = Array.isArray(raw.history) ? raw.history.filter(Boolean).map(normalizeEntry) : [];
+            const storedStamps = Number(raw.stamps);
+            const stamps = Number.isFinite(storedStamps) && storedStamps >= history.length ? storedStamps : history.length;
+            return { stamps, history };
+          } catch(_){
+            return { stamps: 0, history: [] };
+          }
+        }
+
+        function normalizeEntry(entry){
+          return {
+            id: String(entry.id || `stamp-${Date.now()}`),
+            area: entry.area === 'outside' ? 'outside' : 'inside',
+            experience: EXPERIENCE_LABELS[entry.experience] ? entry.experience : 'gastrobar',
+            spot: String(entry.spot || ''),
+            notes: String(entry.notes || ''),
+            amount: Number(entry.amount) || 0,
+            points: Number(entry.points) || 0,
+            createdAt: entry.createdAt || new Date().toISOString()
+          };
+        }
+
+        function saveState(){
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          } catch(_){ }
+        }
+
+        function computePoints({ area, amount, experience }){
+          const base = 40;
+          let bonus = 0;
+          if (area === 'outside') bonus += 20;
+          if (amount >= 80000) bonus += 30;
+          else if (amount >= 50000) bonus += 20;
+          else if (amount >= 25000) bonus += 10;
+          const experienceBonus = { gastrobar: 10, palcos: 25, foodtrucks: 15, cafefans: 8, aliado: 18 };
+          bonus += experienceBonus[experience] || 0;
+          return base + bonus;
+        }
+
+        function formatCurrency(value){
+          try {
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(Math.max(0, Math.round(value || 0)));
+          } catch(_){
+            return `$${Math.max(0, Math.round(value || 0)).toLocaleString('es-CO')}`;
+          }
+        }
+
+        function formatDateTime(iso){
+          const date = iso ? new Date(iso) : new Date();
+          if (Number.isNaN(date.getTime())) return '';
+          const d = date.toLocaleDateString('es-CO', { day: '2-digit', month: 'short' });
+          const t = date.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+          return `${d.replace('.', '')} · ${t}`;
+        }
+
+        function pluralize(value, singular, plural){
+          return value === 1 ? singular : plural;
+        }
+
+        function escapeHtml(str){
+          return String(str || '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch] || ch));
+        }
+
+        function getSelectedArea(){
+          const radio = (els.areaRadios || []).find(r => r.checked);
+          return radio ? radio.value : 'inside';
+        }
+
+        function updateAreaStyles(){
+          (els.areaOptions || []).forEach(option => {
+            const input = option.querySelector('input[name="passportArea"]');
+            const checked = !!input?.checked;
+            option.classList.toggle('ring-2', checked);
+            option.classList.toggle('ring-red-500/60', checked && input?.value === 'inside');
+            option.classList.toggle('ring-sky-400/60', checked && input?.value === 'outside');
+            option.classList.toggle('border-white/30', checked);
+            option.classList.toggle('border-white/10', !checked);
+          });
+        }
+
+        function updatePreview(){
+          if (!els.preview) return;
+          const area = getSelectedArea();
+          const amount = Number(els.amountInput?.value || 0);
+          const experience = els.experienceSelect?.value || 'gastrobar';
+          const spot = (els.spotInput?.value || '').trim();
+          if (!spot && amount <= 0){
+            els.preview.innerHTML = '<i data-feather="trending-up" class="h-4 w-4 text-amber-300"></i><span>Completa la información para conocer los puntos que sumarás.</span>';
+            feather?.replace?.();
+            return;
+          }
+          const points = computePoints({ area, amount, experience });
+          const extras = [];
+          if (area === 'outside') extras.push('aliado urbano');
+          if (amount >= 50000) extras.push('consumo destacado');
+          if (experience === 'palcos') extras.push('experiencia premium');
+          const bonusText = extras.length ? ` (bono: ${extras.join(' + ')})` : '';
+          const spend = amount > 0 ? ` por ${formatCurrency(amount)}` : '';
+          els.preview.innerHTML = `<i data-feather="trending-up" class="h-4 w-4 text-amber-300"></i><span>Sello estimado: <strong class="text-white">+${points.toLocaleString('es-CO')} pts</strong>${spend}${bonusText}.</span>`;
+          feather?.replace?.();
+        }
+
+        function render(){
+          if (!els.section) return;
+          const history = Array.isArray(state.history) ? state.history : [];
+          const stamps = Math.max(Number(state.stamps) || 0, history.length);
+          const maxTier = REWARDS[REWARDS.length - 1]?.stamps || 1;
+          const progress = Math.min(100, Math.round((Math.min(stamps, maxTier) / maxTier) * 100));
+          const totalPoints = history.reduce((acc, item) => acc + (Number(item.points) || 0), 0);
+          const outsideCount = history.filter(item => item.area === 'outside').length;
+          const totalSpend = history.reduce((acc, item) => acc + (Number(item.amount) || 0), 0);
+          if (els.stampCount) els.stampCount.textContent = stamps.toLocaleString('es-CO');
+          if (els.points) els.points.textContent = totalPoints.toLocaleString('es-CO');
+          if (els.outsideCount) els.outsideCount.textContent = outsideCount.toLocaleString('es-CO');
+          if (els.spend) els.spend.textContent = formatCurrency(totalSpend);
+          if (els.historyBadge) els.historyBadge.textContent = `${stamps} ${pluralize(stamps, 'sello', 'sellos')}`;
+          if (els.progressBar) els.progressBar.style.width = `${progress}%`;
+          if (els.progressLabel) els.progressLabel.textContent = `Sellos completados: ${Math.min(stamps, maxTier)} de ${maxTier}.`;
+          if (els.nextReward){
+            const upcoming = REWARDS.find(tier => stamps < tier.stamps);
+            els.nextReward.textContent = upcoming ? `Te faltan ${upcoming.stamps - stamps} ${pluralize(upcoming.stamps - stamps, 'sello', 'sellos')} para ${upcoming.reward}.` : '¡Pasaporte completo! Disfruta todos los beneficios.';
+          }
+          renderBenefits(stamps);
+          renderExplorer(history);
+          renderHistory(history);
+          feather?.replace?.();
+        }
+
+        function renderBenefits(stamps){
+          if (!els.benefitsList) return;
+          els.benefitsList.innerHTML = REWARDS.map(tier => {
+            const achieved = stamps >= tier.stamps;
+            const icon = achieved ? 'check-circle' : 'flag';
+            return `<li class="flex items-center gap-3 rounded-2xl border px-4 py-3 ${achieved ? 'border-emerald-400/40 bg-emerald-500/10' : 'border-white/10 bg-white/5'}">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl ${achieved ? 'bg-emerald-500/20 text-emerald-300' : 'bg-black/40 text-white/70'}"><i data-feather="${icon}" class="h-5 w-5"></i></span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">${escapeHtml(tier.reward)}</p>
+                <p class="text-xs text-white/60">Con ${tier.stamps} ${pluralize(tier.stamps, 'sello', 'sellos')}</p>
+              </div>
+            </li>`;
+          }).join('');
+        }
+
+        function renderExplorer(history){
+          if (!els.explorerList) return;
+          const visited = new Set(history.map(item => item.experience));
+          els.explorerList.innerHTML = ROUTES.map(route => {
+            const complete = visited.has(route.id);
+            const icon = complete ? 'check' : route.icon;
+            const chipClass = route.area === 'outside' ? 'bg-sky-500/20 text-sky-100' : 'bg-red-500/20 text-red-100';
+            return `<li class="rounded-2xl border px-4 py-3 ${complete ? 'border-sky-400/40 bg-sky-500/10' : 'border-white/10 bg-white/5'}">
+              <div class="flex items-start gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl ${complete ? 'bg-sky-500/20 text-sky-100' : 'bg-black/40 text-white/70'}"><i data-feather="${icon}" class="h-5 w-5"></i></span>
+                <div class="min-w-0 space-y-1">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <p class="text-sm font-semibold text-white">${escapeHtml(route.title)}</p>
+                    <span class="rounded-full px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.25em] ${chipClass}">${route.area === 'outside' ? 'Fuera' : 'Dentro'}</span>
+                  </div>
+                  <p class="text-xs text-white/60">${escapeHtml(route.description)}</p>
+                  <p class="text-xs font-semibold text-amber-200">${escapeHtml(route.bonus)}</p>
+                </div>
+              </div>
+            </li>`;
+          }).join('');
+        }
+
+        function renderHistory(history){
+          if (!els.historyList) return;
+          if (!history.length){
+            els.historyList.innerHTML = '<li class="py-6 text-center text-sm text-white/60">Aún no registras experiencias gastronómicas. ¡Sella tu primera compra y desbloquea recompensas!</li>';
+            return;
+          }
+          const recent = history.slice(0, 5);
+          els.historyList.innerHTML = recent.map(entry => {
+            const icon = entry.area === 'outside' ? 'navigation' : 'coffee';
+            const notes = entry.notes ? `<p class="text-xs text-white/50 mt-1">${escapeHtml(entry.notes)}</p>` : '';
+            return `<li class="flex items-start justify-between gap-3 py-3 first:pt-0 last:pb-0">
+              <div class="flex items-start gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl ${entry.area === 'outside' ? 'bg-sky-500/15 text-sky-200' : 'bg-red-500/15 text-red-200'}"><i data-feather="${icon}" class="h-5 w-5"></i></span>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">${escapeHtml(entry.spot || 'Punto gastronómico')}</p>
+                  <p class="text-xs text-white/60">${escapeHtml(EXPERIENCE_LABELS[entry.experience] || 'Experiencia gastronómica')} • ${entry.area === 'outside' ? 'Fuera del estadio' : 'Dentro del estadio'}</p>
+                  ${notes}
+                </div>
+              </div>
+              <div class="text-right text-xs text-white/60 min-w-[120px]">
+                <p class="text-sm font-semibold text-emerald-300">+${(Number(entry.points) || 0).toLocaleString('es-CO')} pts</p>
+                <p>${formatCurrency(entry.amount)}</p>
+                <p>${formatDateTime(entry.createdAt)}</p>
+              </div>
+            </li>`;
+          }).join('');
+        }
+
+        function resetForm(){
+          if (!els.form) return;
+          els.form.reset();
+          updateAreaStyles();
+          updatePreview();
+        }
+
+        function openModal(){
+          if (!els.modal) return;
+          resetForm();
+          els.modal.classList.remove('hidden');
+          els.modal.classList.add('flex');
+          window.trapFocus?.(els.modal);
+          feather?.replace?.();
+          setTimeout(()=>{ els.spotInput?.focus({ preventScroll: true }); }, 120);
+        }
+
+        function closeModal(){
+          if (!els.modal) return;
+          els.modal.classList.add('hidden');
+          els.modal.classList.remove('flex');
+          window.releaseFocus?.();
+        }
+
+        function handleSubmit(ev){
+          ev.preventDefault();
+          const area = getSelectedArea();
+          const experience = els.experienceSelect?.value || 'gastrobar';
+          const spot = (els.spotInput?.value || '').trim();
+          const notes = (els.notesInput?.value || '').trim();
+          const amount = Math.max(0, Number(els.amountInput?.value || 0));
+          if (!spot){
+            els.spotInput?.focus();
+            return;
+          }
+          const points = computePoints({ area, amount, experience });
+          const entry = {
+            id: `stamp-${Date.now()}`,
+            area,
+            experience,
+            spot,
+            notes,
+            amount,
+            points,
+            createdAt: new Date().toISOString()
+          };
+          const previous = Number(state.stamps) || 0;
+          state.history = [entry].concat(Array.isArray(state.history) ? state.history : []).slice(0, 40);
+          state.stamps = previous + 1;
+          saveState();
+          render();
+          closeModal();
+        }
+
+        function handleReset(){
+          if (!state.history.length) return;
+          const confirmReset = window.confirm('¿Quieres reiniciar tu pasaporte gastronómico? Se borrarán tus sellos registrados.');
+          if (!confirmReset) return;
+          state = { stamps: 0, history: [] };
+          saveState();
+          render();
+        }
+
+        function init(){
+          els = {
+            section: document.getElementById('passportSection'),
+            openBtn: document.getElementById('openPassportModal'),
+            resetBtn: document.getElementById('passportResetBtn'),
+            modal: document.getElementById('passportModal'),
+            cancelBtn: document.getElementById('passportCancelBtn'),
+            closeBtn: document.getElementById('closePassportModal'),
+            form: document.getElementById('passportForm'),
+            preview: document.getElementById('passportPointsPreview'),
+            historyList: document.getElementById('passportHistoryList'),
+            historyBadge: document.getElementById('passportHistoryBadge'),
+            stampCount: document.getElementById('passportStampCount'),
+            nextReward: document.getElementById('passportNextReward'),
+            progressBar: document.getElementById('passportProgressBar'),
+            progressLabel: document.getElementById('passportProgressLabel'),
+            points: document.getElementById('passportPoints'),
+            outsideCount: document.getElementById('passportOutsideCount'),
+            spend: document.getElementById('passportSpend'),
+            benefitsList: document.getElementById('passportBenefitsList'),
+            explorerList: document.getElementById('passportExplorerList'),
+            amountInput: document.getElementById('passportAmount'),
+            spotInput: document.getElementById('passportSpot'),
+            notesInput: document.getElementById('passportNotes'),
+            experienceSelect: document.getElementById('passportExperience'),
+            areaOptions: Array.from(document.querySelectorAll('#passportAreaGroup .passport-area-option')),
+            areaRadios: Array.from(document.querySelectorAll('input[name="passportArea"]'))
+          };
+          if (!els.section) return;
+
+          state = loadState();
+          render();
+
+          els.openBtn?.addEventListener('click', openModal);
+          els.resetBtn?.addEventListener('click', handleReset);
+          els.cancelBtn?.addEventListener('click', ()=>{ closeModal(); });
+          els.closeBtn?.addEventListener('click', closeModal);
+          els.modal?.addEventListener('click', (ev)=>{ if (ev.target === els.modal) closeModal(); });
+          els.form?.addEventListener('submit', handleSubmit);
+          ['input','change'].forEach(evt => {
+            els.amountInput?.addEventListener(evt, updatePreview);
+            els.experienceSelect?.addEventListener(evt, updatePreview);
+            els.spotInput?.addEventListener(evt, updatePreview);
+            els.notesInput?.addEventListener(evt, updatePreview);
+          });
+          (els.areaRadios || []).forEach(radio => radio.addEventListener('change', ()=>{ updateAreaStyles(); updatePreview(); }));
+          updateAreaStyles();
+          updatePreview();
+
+          window.openPassportModal = openModal;
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+      </script>
 
       <script id="family-challenge-script">
       (function(){
@@ -4259,6 +4760,7 @@ html,body{ background:#05070f !important; }
     const chipFor = new Map([
       ['#secResumen', '#sectionNav .chip[data-section="#secResumen"]'],
       ['#secPromos', '#sectionNav .chip[data-section="#secPromos"]'],
+      ['#secPasaporte', '#sectionNav .chip[data-section="#secPasaporte"]'],
       ['#secComunidad', '#sectionNav .chip[data-section="#secComunidad"]'],
       ['#eventsSection', '#sectionNav .chip[data-section="#secEventos"]'],
       ['#secActividad', '#sectionNav .chip[data-section="#secActividad"]']
@@ -4280,7 +4782,7 @@ html,body{ background:#05070f !important; }
         const chipSel = chipFor.get(id);
         setActive(chipSel);
       }, { root:null, rootMargin:'-40% 0px -50% 0px', threshold:[0.25,0.6,0.9] });
-      ['secResumen','secPromos','secComunidad','eventsSection','secActividad'].forEach(i=>{ const el=document.getElementById(i); if (el) obs.observe(el); });
+      ['secResumen','secPromos','secPasaporte','secComunidad','eventsSection','secActividad'].forEach(i=>{ const el=document.getElementById(i); if (el) obs.observe(el); });
       setActive(chipFor.get('#secResumen'));
     }
     if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', init, { once:true }); else init();
@@ -4329,7 +4831,7 @@ html,body{ background:#05070f !important; }
   </script>
   <script id="modal-esc-close">
   (function(){
-    const MODALS=['profileModal','familyModal','topUpModal','verificationModal','redeemModal','triviaModal','foodModal','mapModal','eventsModal','showModal','flashModal','dailyChallengeModal','experiencesModal','iosNfcModal','qrModal'];
+    const MODALS=['profileModal','familyModal','passportModal','topUpModal','verificationModal','redeemModal','triviaModal','foodModal','mapModal','eventsModal','showModal','flashModal','dailyChallengeModal','experiencesModal','iosNfcModal','qrModal'];
     function isOpen(id){ const el=document.getElementById(id); return el && !el.classList.contains('hidden'); }
     function close(id){
       const el=document.getElementById(id); if(!el) return;
@@ -4370,8 +4872,8 @@ html,body{ background:#05070f !important; }
     function wire(){
       // Section chips
       const chips = Array.from(document.querySelectorAll('#sectionNav .chip'));
-      const sections = ['#secResumen','#secPromos','#secComunidad','#secEventos','#secActividad'];
-      const map = { '#secPromos':'promosSection', '#secComunidad':'engagementSection' };
+      const sections = ['#secResumen','#secPromos','#secPasaporte','#secComunidad','#secEventos','#secActividad'];
+      const map = { '#secPromos':'promosSection', '#secPasaporte':'passportSection', '#secComunidad':'engagementSection' };
       chips.forEach(ch => ch.addEventListener('click', ()=>{
         const target = ch.getAttribute('data-section');
         const el = document.querySelector(target) || document.getElementById(map[target]||'');
